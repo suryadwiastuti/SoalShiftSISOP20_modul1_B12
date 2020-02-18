@@ -126,7 +126,7 @@ awk -F "," '
 		}
 
 		print "Smallest profit products : "
-		for(a in name) print name[a] " -> " arr[a]
+		for(a in name) print name[a]
 	
 	}
 ' Sample*
