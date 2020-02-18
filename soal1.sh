@@ -8,6 +8,22 @@ awk -F "," '
 		staReg[$11,$13]=staReg[$11,$13]+$21
 		staRegProd[$11,$13,$17]=staRegProd[$11,$13,$17]+$21
 	}
+
+	function compareString(str1,str2) {
+		if(length(str1)!=length(str2)){
+			return 0
+		}
+
+		split(str1,str11,"")
+		split(str2,str22,"")
+		
+		for(i=0;i<length(str1);i++) {
+			if(str11[i]!=str22[i])return 0
+		}
+		
+		return 1
+	}
+
 	END{
 		i=0
 		smallest
@@ -19,7 +35,7 @@ awk -F "," '
 			}
 			i++
 		}
-		print "smallest profit Region = " smallestReg " With profit " smallest
+		print "Smallest profit region -> " smallestReg
 		smallestStaProf1=0
 		smallestSta1=something
 		smallestStaProf=999999999999999
@@ -34,24 +50,83 @@ awk -F "," '
 				i++
 			}
 		}
-		print "smallest profit State " smallestSta " and " smallestSta1
+
+		print "Smallest profit states -> " smallestSta " and " smallestSta1
+		
 		for(i=1;i<=10;i++){
 			arr[i]=999999999999999
-			name[i]=kuuhaku86
-		}	
-		i=0
-		for(a in prod) {
-			if((i==0 && (staRegProd[smallestSta,smallestReg,a]!="" || staRegProd[smallestSta1,smallestReg,a]!="")) || (arr[1] > staRegProd[smallestSta,smallestReg,a] && staRegProd[smallestSta,smallestReg,a] != "") || (arr[1] > staRegProd[smallestSta1,smallestReg,a] && staRegProd[smallestSta1,smallestReg,a] != "")) {
-                                for(i=9;i>=1;i--){
-                       	 		arr[i+1] = arr[i]
-					name[i+1] = name[i]
-                		}
-				arr[1] = staRegProd[a,smallestReg,smallestSta1]
-				name[1] = a
-                                i++
-                        }	
+			name[i]=""
 		}
-		print "Smallest Profit Product"
-		for(a in name) print name[a]	
+
+		for(a in prod) {
+			i=1
+
+			if(staRegProd[smallestSta,smallestReg,a] != "") {
+				num=staRegProd[smallestSta,smallestReg,a]
+				flag=0
+				
+				for(k=1;k<=10;k++) {
+					if(compareString(name[k],a)==1){
+						if(arr[k]>num) {
+							arr[k]=num
+						}
+						flag=1
+						break
+					}
+				}
+
+				while(i <= 10 && num > arr[i] && flag==0) {
+					i++
+				}
+
+				j=9
+
+				while(j >= i && flag==0){
+					arr[j+1]=arr[j]
+					name[j+1]=name[j]
+					j--
+				}
+
+				if(i <= 10 && flag==0) {
+					arr[i]=num
+					name[i]=a
+				}
+			}
+
+			if(staRegProd[smallestSta1,smallestReg,a] != "") {
+				num=staRegProd[smallestSta1,smallestReg,a]
+				flag=0
+				for(k=1;k<=10;k++) {
+					if(compareString(name[k],a)==1){
+						if(arr[k]>num) {
+							arr[k]=num
+						}
+						flag=1
+						break
+					}
+				}
+
+				while(i <= 10 && num > arr[i] && flag==0) {
+					i++
+				}
+
+				j=9
+				
+				while(j >= i && flag==0){
+					arr[j+1]=arr[j]
+					name[j+1]=name[j]
+					j--
+				}
+				
+				if(i <= 10 && flag==0) {
+					arr[i]=num
+					name[i]=a
+				}
+			}
+		}
+
+		print "Smallest profit products : "
+		for(a in name) print name[a] " -> " arr[a]
+	
 	}
 ' Sample*
