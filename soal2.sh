@@ -26,5 +26,6 @@ do
 	esac
 done
 
-echo $string > "$1.txt"
-date +%H >> "$1.txt"
+hour=$(date +%H)
+
+echo "$string$hour" > "$1.txt"
