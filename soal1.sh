@@ -1,6 +1,6 @@
 #!/bin/bash
 
-awk -F "," '
+awk -F $'\t' '
 	NR > 1{
 		reg[$13]=reg[$13]+$21
 		sta[$11]
@@ -36,6 +36,7 @@ awk -F "," '
 			i++
 		}
 		print "Smallest profit region -> " smallestReg
+		
 		smallestStaProf1=0
 		smallestSta1=something
 		smallestStaProf=999999999999999
