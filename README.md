@@ -401,19 +401,19 @@ rm temp.txt
 mv $1 "$new_name.$extension"
 ```
 Screenshoot :
-- Menjalankan script
+- Menjalankan script<br>
 ![soal2.sh](img/s2.png)
-- File hasil
+- File hasil<br>
 ![soal21.sh](img/s22.png)
-- Isi file
+- Isi file<br>
 ![soal22.sh](img/s23.png)
-- Menjalankan script enkripsi
+- Menjalankan script enkripsi<br>
 ![soal23.sh](img/s24.png)
-- Hasil enkripsi
+- Hasil enkripsi<br>
 ![soal24.sh](img/s25.png)
-- Menjalankan script dekripsi
+- Menjalankan script dekripsi<br>
 ![soal25.sh](img/s26.png)
-- Hasil script dekripsi
+- Hasil script dekripsi<br>
 ![soal25.sh](img/s22.png)
 
 Kendala selama pengerjaan :
@@ -532,20 +532,20 @@ Lalu untuk script crontab-nya :
 5 6,14,22 * * 0-5 /bin/bash /home/kuuhaku86/Documents/Tugas*/Sisop/Praktikum*/SoalShiftSISOP20_modul1_B12/soal3.sh
 ```
 Screenshoot pengerjaan :
-- Proses download
+- Proses download<br>
 ![s3](img/s3.png)
-- File-file log yang terbentuk
-![s31](img/s31.png)
+- File-file log yang terbentuk<br>
+![s31](img/s31.png)<br>
 ![s32](img/s32.png)
-- Isi ```wget.log```
+- Isi ```wget.log```<br>
 ![s33](img/s33.png)
-- Pemilahan file yang identik :
-![s34](img/s34.png)
+- Pemilahan file yang identik<br>
+![s34](img/s34.png)<br>
 ![s35](img/s35.png)
-- Merubah ekstensi ```log``` ke ```log.bak```
-![s36](img/s36.png)
+- Merubah ekstensi ```log``` ke ```log.bak```<br>
+![s36](img/s36.png)<br>
 ![s37](img/s37.png)
-- Isi dari crontab :
+- Isi dari crontab<br>
 ![s38](img/s38.png)
 
 Kendala yang dialami selama pengerjaan :
