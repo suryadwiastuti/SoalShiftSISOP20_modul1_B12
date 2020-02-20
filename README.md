@@ -439,7 +439,7 @@ done
 
 Apabila directory untuk pemilahan gambar belum ada, buat directory itu :
 ```bash
-echo [ ! -d "kenangan" ] && mkdir "kenangan"
+[ ! -d "kenangan" ] && mkdir "kenangan"
 [ ! -d "duplicate" ] && mkdir "duplicate"
 ```
 
@@ -519,10 +519,11 @@ do
 done
 ```
 
-Lalu, file berekstensi log dirubah ekstensinya ke ```wget.log```. Dan juga dilakukan ```grep``` untuk mendapatkan ```location.log```. Script-nya :
+```wget.log``` isinya disimpan di ```wget.log.bak```. Dan juga dilakukan ```grep``` untuk mendapatkan ```location.log```. Script-nya :
 ```bash
 grep Location "wget.log" > "location.log"
-mv "wget.log" "wget.log.bak"
+cat "wget.log" >> "wget.log.bak"
+rm "wget.log"
 mv "location.log" "location.log.bak"
 ```
 

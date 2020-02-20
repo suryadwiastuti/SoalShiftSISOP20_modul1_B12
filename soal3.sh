@@ -10,7 +10,7 @@ do
     arr[$i]="pdkt_kusuma_$i.jpg"
 done
 
-echo [ ! -d "kenangan" ] && mkdir "kenangan"
+[ ! -d "kenangan" ] && mkdir "kenangan"
 [ ! -d "duplicate" ] && mkdir "duplicate"
 
 ls -l "kenangan" >> "tempKenangan.txt"
@@ -86,5 +86,6 @@ do
 done
 
 grep Location "wget.log" > "location.log"
-mv "wget.log" "wget.log.bak"
+cat "wget.log" >> "wget.log.bak"
+rm "wget.log"
 mv "location.log" "location.log.bak"
