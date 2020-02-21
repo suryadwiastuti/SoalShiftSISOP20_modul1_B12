@@ -1,5 +1,9 @@
 #!/bin/bash
 
+str=$1
+
+if [[ ! "${str//[A-Za-z]/}" = "" ]] ; then echo "Only alphabet allowed"; exit 1; fi 
+
 string=""
 
 capital="ABCDEFGHIJKLMNOPQRSTUVWXYZ"

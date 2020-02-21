@@ -175,7 +175,16 @@ Screenshoot hasil :
 
 Soal ke 2 ini memerintahkan kita untuk membuat suatu password generator yang akan menghasilkan password dengan jumlah karakter sebanyak 28 yang berisi huruf besar, huruf kecil, dan angka. Hasil password generator tersebut disimpan di sebuah file berkekstensi txt dengan nama berdasarkan arguman yang diinputkan. Kemudian kita akan membuat suatu script untuk enkripsi nama dari file tersebut dengan menggunakan prinsip caesar cipher, kunci yang digunakan adalah jam dari saat file tersebut dibuat. Lalu kita juga membuat script dekripsi untuk nama file tersebut.
 
+Pertama, kita harus cek apakah argumen hanya mengandung alphabet dengan script :
+
+```bash
+    if [[ ! "${str//[A-Za-z]/}" = "" ]] ; then echo "Only alphabet allowed"; exit 1; fi 
+```
+
 Untuk membuat password decryptor, saya membuat script yang didalamnya menggunakan bantuan dari fungsi ```$RANDOM``` dari bash. Lalu untuk jam dibuatnya file saya taruh di 2 digit terakhir dari password :
+
+
+
 ```bash
 string=""
 
